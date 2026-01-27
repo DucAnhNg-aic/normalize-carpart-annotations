@@ -1,0 +1,367 @@
+[
+  {
+    "id": 0,
+    "name": "Nóc xe ",
+    "color": "rgb(219, 53, 132)"
+  },
+  {
+    "id": 1,
+    "name": "Viền nóc (mui)",
+    "color": "rgb(184, 196, 131)"
+  },
+  {
+    "id": 2,
+    "name": "Pa vô lê",
+    "color": "rgb(206, 189, 195)"
+  },
+  {
+    "id": 3,
+    "name": "Kính chắn gió trước",
+    "color": "rgb(226, 121, 29)"
+  },
+  {
+    "id": 4,
+    "name": "Ca pô trước",
+    "color": "rgb(119, 239, 144)"
+  },
+  {
+    "id": 5,
+    "name": "Ca lăng",
+    "color": "rgb(59, 139, 157)"
+  },
+  {
+    "id": 6,
+    "name": "Lốp phụ sau xe",
+    "color": "rgb(122, 242, 49)"
+  },
+  {
+    "id": 7,
+    "name": "Ba đờ sốc trước",
+    "color": "rgb(208, 20, 30)"
+  },
+  {
+    "id": 8,
+    "name": "Lưới ba đờ sốc",
+    "color": "rgb(158, 250, 28)"
+  },
+  {
+    "id": 9,
+    "name": "Ốp ba đờ sốc trước",
+    "color": "rgb(85, 251, 80)"
+  },
+  {
+    "id": 10,
+    "name": "Lô gô",
+    "color": "rgb(44, 57, 207)"
+  },
+  {
+    "id": 11,
+    "name": "Đèn phản quang ba đờ sốc sau",
+    "color": "rgb(129, 11, 152)"
+  },
+  {
+    "id": 12,
+    "name": "Cốp sau / Cửa hậu",
+    "color": "rgb(242, 197, 3)"
+  },
+  {
+    "id": 13,
+    "name": "Ba đờ sốc sau",
+    "color": "rgb(174, 28, 150)"
+  },
+  {
+    "id": 14,
+    "name": "Ốp ba đờ sốc sau",
+    "color": "rgb(161, 202, 196)"
+  },
+  {
+    "id": 15,
+    "name": "Kính chắn gió sau",
+    "color": "rgb(128, 51, 64)"
+  },
+  {
+    "id": 16,
+    "name": "Đèn gầm",
+    "color": "rgb(185, 101, 227)"
+  },
+  {
+    "id": 17,
+    "name": "Ốp đèn gầm",
+    "color": "rgb(166, 186, 32)"
+  },
+  {
+    "id": 18,
+    "name": "Cụm đèn trước",
+    "color": "rgb(230, 37, 70)"
+  },
+  {
+    "id": 19,
+    "name": "Mặt gương (kính) chiếu hậu",
+    "color": "rgb(218, 218, 157)"
+  },
+  {
+    "id": 20,
+    "name": "Vỏ gương (kính) chiếu hậu",
+    "color": "rgb(249, 123, 249)"
+  },
+  {
+    "id": 21,
+    "name": "Chân gương (kính) chiếu hậu",
+    "color": "rgb(186, 254, 140)"
+  },
+  {
+    "id": 22,
+    "name": "Đèn xi nhan trên gương chiếu hậu",
+    "color": "rgb(107, 235, 140)"
+  },
+  {
+    "id": 23,
+    "name": "Trụ kính trước",
+    "color": "rgb(237, 211, 109)"
+  },
+  {
+    "id": 24,
+    "name": "Tai (vè trước) xe",
+    "color": "rgb(94, 250, 54)"
+  },
+  {
+    "id": 25,
+    "name": "Ốp Tai (vè trước) xe",
+    "color": "rgb(219, 126, 72)"
+  },
+  {
+    "id": 26,
+    "name": "Đèn xi nhan ba đ sốc",
+    "color": "rgb(203, 220, 242)"
+  },
+  {
+    "id": 27,
+    "name": "Ốp đèn xi nhan ba đ sốc",
+    "color": "rgb(14, 22, 83)"
+  },
+  {
+    "id": 28,
+    "name": "Đèn hậu",
+    "color": "rgb(157, 187, 85)"
+  },
+  {
+    "id": 29,
+    "name": "Kính chết góc cửa",
+    "color": "rgb(25, 73, 79)"
+  },
+  {
+    "id": 30,
+    "name": "Kính hông",
+    "color": "rgb(195, 203, 190)"
+  },
+  {
+    "id": 31,
+    "name": "Hông (vè sau) xe / thùng xe",
+    "color": "rgb(73, 233, 207)"
+  },
+  {
+    "id": 32,
+    "name": "Trụ kính sau",
+    "color": "rgb(197, 185, 202)"
+  },
+  {
+    "id": 33,
+    "name": "Đèn hậu trên cốp sau",
+    "color": "rgb(129, 16, 38)"
+  },
+  {
+    "id": 34,
+    "name": "La giăng (Mâm xe)",
+    "color": "rgb(4, 137, 21)"
+  },
+  {
+    "id": 35,
+    "name": "Lốp (vỏ) xe",
+    "color": "rgb(140, 103, 49)"
+  },
+  {
+    "id": 36,
+    "name": "Tay mở cửa",
+    "color": "rgb(130, 215, 234)"
+  },
+  {
+    "id": 37,
+    "name": "Kính cánh cửa",
+    "color": "rgb(85, 211, 46)"
+  },
+  {
+    "id": 38,
+    "name": "Cánh cửa",
+    "color": "rgb(189, 27, 29)"
+  },
+  {
+    "id": 39,
+    "name": "Trụ kính cánh cửa",
+    "color": "rgb(227, 202, 23)"
+  },
+  {
+    "id": 40,
+    "name": "Ốp hông (vè sau) xe / thùng xe",
+    "color": "rgb(197, 234, 52)"
+  },
+  {
+    "id": 41,
+    "name": "Nẹp cốp sau",
+    "color": "rgb(105, 105, 93)"
+  },
+  {
+    "id": 42,
+    "name": "Bậc cánh cửa",
+    "color": "rgb(25, 137, 20)"
+  },
+  {
+    "id": 43,
+    "name": "Nẹp ca pô trước",
+    "color": "rgb(45, 74, 171)"
+  },
+  {
+    "id": 44,
+    "name": "Biển số xe",
+    "color": "rgb(193, 150, 7)"
+  },
+  {
+    "id": 45,
+    "name": "Đèn đi ban ngày",
+    "color": "rgb(158, 63, 28)"
+  },
+  {
+    "id": 46,
+    "name": "Ốp cánh cửa",
+    "color": "rgb(116, 73, 148)"
+  },
+  {
+    "id": 47,
+    "name": "Ốp viền gầm cản trước",
+    "color": "rgb(21, 190, 121)"
+  },
+  {
+    "id": 48,
+    "name": "Ốp ba đờ sốc sau LR",
+    "color": "rgb(126, 31, 247)"
+  },
+  {
+    "id": 49,
+    "name": "Ốp ba đờ sốc trước LR",
+    "color": "rgb(171, 6, 242)"
+  },
+  {
+    "id": 50,
+    "name": "Ốp cánh cửa FB",
+    "color": "rgb(46, 23, 164)"
+  },
+  {
+    "id": 51,
+    "name": "Kính chết góc cửa trước",
+    "color": "rgb(150, 26, 0)"
+  },
+  {
+    "id": 52,
+    "name": "Tên dòng xe",
+    "color": "rgb(42, 24, 237)"
+  },
+  {
+    "id": 53,
+    "name": "Nẹp ca lăng",
+    "color": "rgb(120, 218, 253)"
+  },
+  {
+    "id": 54,
+    "name": "Nẹp kính cánh cửa",
+    "color": "rgb(232, 130, 218)"
+  },
+  {
+    "id": 55,
+    "name": "Nẹp cánh cửa",
+    "color": "rgb(145, 140, 194)"
+  },
+  {
+    "id": 56,
+    "name": "Nắp thùng xe",
+    "color": "rgb(248, 111, 104)"
+  },
+  {
+    "id": 57,
+    "name": "Nắp thùng xe LR",
+    "color": "rgb(62, 106, 14)"
+  },
+  {
+    "id": 58,
+    "name": "Nắp thùng xe sau",
+    "color": "rgb(101, 7, 179)"
+  },
+  {
+    "id": 59,
+    "name": "Kính nắp thùng xe sau",
+    "color": "rgb(41, 160, 166)"
+  },
+  {
+    "id": 60,
+    "name": "Kính nắp thùng xe LR",
+    "color": "rgb(115, 64, 158)"
+  },
+  {
+    "id": 61,
+    "name": "Trụ cánh cửa",
+    "color": "rgb(221, 140, 247)"
+  },
+  {
+    "id": 62,
+    "name": "Nắp bình xăng",
+    "color": "rgb(248, 231, 28)"
+  },
+  {
+    "id": 63,
+    "name": "Thùng xe tải",
+    "color": "rgb(8, 181, 154)"
+  },
+  {
+    "id": 64,
+    "name": "Nẹp cụm đèn trước",
+    "color": "rgb(102, 29, 129)"
+  },
+  {
+    "id": 65,
+    "name": "Ba đờ sốc sau LR",
+    "color": "rgb(112, 69, 0)"
+  },
+  {
+    "id": 66,
+    "name": "Ốp đèn hậu",
+    "color": "rgb(173, 166, 81)"
+  },
+  {
+    "id": 67,
+    "name": "Móp, bẹp(thụng)",
+    "color": "rgb(249, 94, 24)"
+  },
+  {
+    "id": 68,
+    "name": "Vỡ, nứt",
+    "color": "rgb(79, 72, 100)"
+  },
+  {
+    "id": 69,
+    "name": "Thủng, rách",
+    "color": "rgb(252, 57, 54)"
+  },
+  {
+    "id": 70,
+    "name": "Trầy, xước",
+    "color": "rgb(153, 211, 26)"
+  },
+  {
+    "id": 71,
+    "name": "Long, rụng",
+    "color": "rgb(238, 125, 138)"
+  },
+  {
+    "id": 72,
+    "name": "Mất",
+    "color": "rgb(94, 60, 131)"
+  }
+]
