@@ -1,0 +1,22 @@
+# Images
+*.jpg
+*.jpeg
+*.png
+*.gif
+*.bmp
+*.webp
+
+# Data
+*.csv
+
+# Output
+visualizations/
+merged_output/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# OS
+.DS_Store
