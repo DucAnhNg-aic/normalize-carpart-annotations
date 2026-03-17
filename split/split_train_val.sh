@@ -5,5 +5,5 @@
 # to images/val and labels/val respectively.
 
 python3 /home/a4000/ducanh/normalize-carpart-annotations/split/split_train_val.py \
-  --val-txt /home/a4000/Data/ducanhng/CV/Dataset/val.txt \
-  --data-dir /home/a4000/Data/ducanhng/CV/Dataset/20260213/YOLO_segmentation
+  --val-txt /home/a4000/ducanh/Dataset/val.txt \
+  --data-dir /home/a4000/ducanh/Dataset

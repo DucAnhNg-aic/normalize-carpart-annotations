@@ -25,7 +25,6 @@ def load_class_names(data_yaml_path):
 
 def generate_colors(num_classes):
     """Generate distinct colors for each class"""
-    random.seed(42)
     colors = []
     for i in range(num_classes):
         # Generate vibrant colors
@@ -157,8 +156,13 @@ def main():
     parser.add_argument(
         '--images-dir',
         type=Path,
-        required=True,
         help='Directory containing images'
+    )
+    parser.add_argument(
+        '--image-path',
+        type=Path,
+        nargs='+',
+        help='Path to one or more specific image files'
     )
     parser.add_argument(
         '--labels-dir',
@@ -202,16 +206,27 @@ def main():
     # Generate colors
     colors = generate_colors(len(class_names))
     
-    # Get all images
-    image_files = sorted(list(args.images_dir.glob("*.jpg")) + 
-                        list(args.images_dir.glob("*.jpeg")) + 
-                        list(args.images_dir.glob("*.png")))
-    
-    # Shuffle images if you want random ones
-    random.seed(42) # Using a seed for reproducibility
-    random.shuffle(image_files)
-    
-    if args.limit:
+    # Get images to process
+    if args.image_path:
+        image_files = []
+        for p in args.image_path:
+            if p.is_dir():
+                found = list(p.glob("*.jpg")) + list(p.glob("*.jpeg")) + list(p.glob("*.png"))
+                random.shuffle(found)
+                image_files.extend(found)
+            else:
+                image_files.append(p)
+    elif args.images_dir:
+        image_files = (list(args.images_dir.glob("*.jpg")) + 
+                      list(args.images_dir.glob("*.jpeg")) + 
+                      list(args.images_dir.glob("*.png")))
+        random.shuffle(image_files)
+    else:
+        print("Error: Either --images-dir or --image-path must be specified.")
+        return
+
+    # Always apply limit if specified
+    if args.limit and len(image_files) > args.limit:
         image_files = image_files[:args.limit]
     
     print(f"Found {len(image_files)} images")

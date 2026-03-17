@@ -1,0 +1,515 @@
+{
+  "result": [
+    {
+      "imgResolution": [
+        1368,
+        1091
+      ],
+      "imgDrawName": "INSURANCE_RESULT/AXIluZS8qViUbGBFrQfnP.jpg",
+      "extraInfor": {
+        "imageDirection": "45-phai-sau-fRzY3r",
+        "additionalCornerInfor": "45° Phải - Sau",
+        "imagePosition": "toan-canh-afh4l5",
+        "plateNumber": "65A 47855",
+        "chassisNumber": null,
+        "carCompany": "HYUNDAI",
+        "carModel": "ACCENT",
+        "carShape": "SEDAN",
+        "carColor": [
+          138,
+          144,
+          149
+        ]
+      },
+      "carDamages": [],
+      "carParts": [
+        {
+          "classUUID": "op-ba-do-soc-sau-F5oSX5",
+          "score": 0.9778849482536316,
+          "box": [
+            0.010233918204903603,
+            0.6342805027961731,
+            0.5131579041481018,
+            0.9330888986587524
+          ],
+          "maskPath": "paeD1O33wtzJBjDMrf9tI.png",
+          "isPart": true,
+          "partDirection": "sau-htBwjB",
+          "damages": []
+        },
+        {
+          "classUUID": "cop-sau-SNFQ0L",
+          "score": 0.9745365381240845,
+          "box": [
+            0.0036549707874655724,
+            0.19981668889522552,
+            0.6154970526695251,
+            0.6416131854057312
+          ],
+          "maskPath": "uWgxqnbuhgrwV_OTNCFAN.png",
+          "isPart": true,
+          "partDirection": "sau-htBwjB",
+          "damages": []
+        },
+        {
+          "classUUID": "ve-sau-xe-phai-46u6TU",
+          "score": 0.9704786539077759,
+          "box": [
+            0.4773391783237457,
+            0.2474793791770935,
+            0.8669590353965759,
+            0.6113657355308533
+          ],
+          "maskPath": "zsxHuqqWZhQ_fTm5EtGHv.png",
+          "isPart": true,
+          "partDirection": "phai-sau-v1hAm6",
+          "damages": []
+        },
+        {
+          "classUUID": "ba-do-soc-sau-VNeV0B",
+          "score": 0.9651076793670654,
+          "box": [
+            0.0,
+            0.4766269624233246,
+            0.8106725215911865,
+            0.835930347442627
+          ],
+          "maskPath": "l7nfSNnDv-AyFAX65nkWw.png",
+          "isPart": true,
+          "partDirection": "sau-htBwjB",
+          "damages": []
+        },
+        {
+          "classUUID": "canh-cua-sau-phai-zZmUgi",
+          "score": 0.9419375061988831,
+          "box": [
+            0.7931286692619324,
+            0.26581117510795593,
+            0.9290935397148132,
+            0.5985334515571594
+          ],
+          "maskPath": "I9rlW0rZIgT-wHXu7UTHt.png",
+          "isPart": true,
+          "partDirection": "phai-sau-v1hAm6",
+          "damages": []
+        },
+        {
+          "classUUID": "lop-xe-sau-phai-XEinVv",
+          "score": 0.9375617504119873,
+          "box": [
+            0.7200292348861694,
+            0.5362052917480469,
+            0.8530701994895935,
+            0.9156736731529236
+          ],
+          "maskPath": "EDn0-CTX0ZLwDz4TWHOKu.png",
+          "isPart": true,
+          "partDirection": "phai-sau-v1hAm6",
+          "damages": []
+        },
+        {
+          "classUUID": "khung-kinh-canh-cua-truoc-phai-IcXqJk",
+          "score": 0.9344870448112488,
+          "box": [
+            0.8472222089767456,
+            0.09990834444761276,
+            0.9407894611358643,
+            0.2593950629234314
+          ],
+          "maskPath": "oGXiLJx9RBDGHAPrL41Kt.png",
+          "isPart": true,
+          "partDirection": "phai-truoc-eYWg1d",
+          "damages": []
+        },
+        {
+          "classUUID": "khung-kinh-canh-cua-sau-phai-sMUBvC",
+          "score": 0.9288880825042725,
+          "box": [
+            0.7799707651138306,
+            0.09807515889406204,
+            0.8954678177833557,
+            0.2685609459877014
+          ],
+          "maskPath": "JUari7t4NU3WzDYdn192j.png",
+          "isPart": true,
+          "partDirection": "phai-sau-v1hAm6",
+          "damages": []
+        },
+        {
+          "classUUID": "canh-cua-truoc-phai-e1TMUO",
+          "score": 0.9040790796279907,
+          "box": [
+            0.9005848169326782,
+            0.2639780044555664,
+            0.972953200340271,
+            0.5307057499885559
+          ],
+          "maskPath": "q1HkeF9Hs37KjZ1NNBQmC.png",
+          "isPart": true,
+          "partDirection": "phai-truoc-eYWg1d",
+          "damages": []
+        },
+        {
+          "classUUID": "lop-xe-truoc-phai-5gr6EN",
+          "score": 0.8393105268478394,
+          "box": [
+            0.9342105388641357,
+            0.3565536141395569,
+            0.984649121761322,
+            0.5215398669242859
+          ],
+          "maskPath": "Zr8ITHdW2p77BpLYFSa3x.png",
+          "isPart": true,
+          "partDirection": "phai-truoc-eYWg1d",
+          "damages": []
+        },
+        {
+          "classUUID": "vo-guong-chieu-hau-phai-tBEiDl",
+          "score": 0.6077538728713989,
+          "box": [
+            0.9663742780685425,
+            0.2190650850534439,
+            0.984649121761322,
+            0.24564619362354279
+          ],
+          "maskPath": "E4mDpQgzBzqz5E6qZU6h9.png",
+          "isPart": true,
+          "partDirection": "phai-4wif2Z",
+          "damages": []
+        },
+        {
+          "classUUID": "op-ba-do-soc-sau-tren-opUG20",
+          "score": 0.9900651574134827,
+          "box": [
+            0.0036549707874655724,
+            0.5774518847465515,
+            0.7470760345458984,
+            0.9431713819503784
+          ],
+          "maskPath": "ERQq2sLbYg2mWAn0hz_xx.png",
+          "isPart": true,
+          "partDirection": "sau-htBwjB",
+          "damages": []
+        },
+        {
+          "classUUID": "op-den-hau-phai-pbuvBw",
+          "score": 0.9849147796630859,
+          "box": [
+            0.4429824650287628,
+            0.5178735256195068,
+            0.6308479309082031,
+            0.6773602366447449
+          ],
+          "maskPath": "lgY1VVsywqjQqursSA95c.png",
+          "isPart": true,
+          "partDirection": "phai-sau-v1hAm6",
+          "damages": []
+        },
+        {
+          "classUUID": "den-hau-sau-phai-X00LpH",
+          "score": 0.968158483505249,
+          "box": [
+            0.4707602262496948,
+            0.419798344373703,
+            0.7127193212509155,
+            0.6489459276199341
+          ],
+          "maskPath": "YBtkmxzPwbbT-uUqQm0Og.png",
+          "isPart": true,
+          "partDirection": "phai-sau-v1hAm6",
+          "damages": []
+        },
+        {
+          "classUUID": "op-den-hau-trai-iv78WI",
+          "score": 0.9601102471351624,
+          "box": [
+            0.0021929824724793434,
+            0.38588452339172363,
+            0.032894738018512726,
+            0.4857928454875946
+          ],
+          "maskPath": "pB5l1R0zRkL8T-YpTQkKx.png",
+          "isPart": true,
+          "partDirection": "trai-sau-t8QgFO",
+          "damages": []
+        },
+        {
+          "classUUID": "tru-kinh-sau-phai-ezeNFw",
+          "score": 0.9456100463867188,
+          "box": [
+            0.6169590353965759,
+            0.10540788620710373,
+            0.7785087823867798,
+            0.2850595712661743
+          ],
+          "maskPath": "UoE7vh5aEPY1qz2Wh7ZVv.png",
+          "isPart": true,
+          "partDirection": "phai-sau-v1hAm6",
+          "damages": []
+        },
+        {
+          "classUUID": "bien-so-xe-sau-YDA1xr",
+          "score": 0.9429514408111572,
+          "box": [
+            0.10014619678258896,
+            0.42071494460105896,
+            0.26169589161872864,
+            0.5838680267333984
+          ],
+          "maskPath": "zA9di_8BIYHLJmCHSnnKD.png",
+          "isPart": true,
+          "partDirection": "sau-htBwjB",
+          "damages": []
+        },
+        {
+          "classUUID": "la-giang-sau-phai-fvTAcJ",
+          "score": 0.9345687627792358,
+          "box": [
+            0.7909356951713562,
+            0.5912007093429565,
+            0.8457602262496948,
+            0.8597617149353027
+          ],
+          "maskPath": "COUK7C6nZPjLuvVgGZYco.png",
+          "isPart": true,
+          "partDirection": "phai-sau-v1hAm6",
+          "damages": []
+        },
+        {
+          "classUUID": "logo-sau-mxDufc",
+          "score": 0.9047975540161133,
+          "box": [
+            0.14108186960220337,
+            0.2969752550125122,
+            0.20321637392044067,
+            0.3510540723800659
+          ],
+          "maskPath": "_aK6HtJ0zeSVvQrmIbQhc.png",
+          "isPart": true,
+          "partDirection": "sau-htBwjB",
+          "damages": []
+        },
+        {
+          "classUUID": "pavole-phai-um8Us3",
+          "score": 0.8852617144584656,
+          "box": [
+            0.8545321822166443,
+            0.47021082043647766,
+            0.957602322101593,
+            0.6306141018867493
+          ],
+          "maskPath": "h4DBMohF_RM5XAsAdJZSr.png",
+          "isPart": true,
+          "partDirection": "phai-4wif2Z",
+          "damages": []
+        },
+        {
+          "classUUID": "noc-xe-tren-U5leeQ",
+          "score": 0.8452463150024414,
+          "box": [
+            0.38523390889167786,
+            0.04766269400715828,
+            0.7865496873855591,
+            0.10357470065355301
+          ],
+          "maskPath": "C-IQninoVrkLKDCAJtyVC.png",
+          "isPart": true,
+          "partDirection": "tren-BrogFf",
+          "damages": []
+        },
+        {
+          "classUUID": "nep-kinh-canh-cua-sau-phai-hfLxGB",
+          "score": 0.8131629228591919,
+          "box": [
+            0.7894737124443054,
+            0.2575618624687195,
+            0.9013158082962036,
+            0.2786434590816498
+          ],
+          "maskPath": "UniKr6SToee7aoqtJJojD.png",
+          "isPart": true,
+          "partDirection": "phai-sau-v1hAm6",
+          "damages": []
+        },
+        {
+          "classUUID": "tay-mo-cua-sau-phai-EWmdzr",
+          "score": 0.8007622957229614,
+          "box": [
+            0.8209064602851868,
+            0.3070577383041382,
+            0.8691520690917969,
+            0.3373052179813385
+          ],
+          "maskPath": "43NjEYAVTgpTmpz43TR5j.png",
+          "isPart": true,
+          "partDirection": "phai-sau-v1hAm6",
+          "damages": []
+        },
+        {
+          "classUUID": "vien-noc-xe-phai-5aCd5d",
+          "score": 0.7743508815765381,
+          "box": [
+            0.7171052694320679,
+            0.07516040652990341,
+            0.8845029473304749,
+            0.12098991870880127
+          ],
+          "maskPath": "gk97tRkhtulSnPdPMy3N3.png",
+          "isPart": true,
+          "partDirection": "phai-4wif2Z",
+          "damages": []
+        },
+        {
+          "classUUID": "tay-mo-cua-truoc-phai-RMxM68",
+          "score": 0.7718384265899658,
+          "box": [
+            0.9225146174430847,
+            0.30064162611961365,
+            0.9495614171028137,
+            0.3226397931575775
+          ],
+          "maskPath": "8QGrl8FUmEhMQsR5F6pK5.png",
+          "isPart": true,
+          "partDirection": "phai-truoc-eYWg1d",
+          "damages": []
+        },
+        {
+          "classUUID": "kinh-chet-goc-cua-sau-phai-B587zn",
+          "score": 0.6761621236801147,
+          "box": [
+            0.7638888955116272,
+            0.12190651148557663,
+            0.7850877046585083,
+            0.2740604877471924
+          ],
+          "maskPath": "2ei8zwdGS9H6Xc89wvJ8U.png",
+          "isPart": true,
+          "partDirection": "phai-sau-v1hAm6",
+          "damages": []
+        },
+        {
+          "classUUID": "la-giang-truoc-phai-orQtVb",
+          "score": 0.6561669707298279,
+          "box": [
+            0.9685672521591187,
+            0.37855178117752075,
+            0.9809941649436951,
+            0.4977085292339325
+          ],
+          "maskPath": "4cEk_i-5YKn0y1BMQkWaB.png",
+          "isPart": true,
+          "partDirection": "phai-truoc-eYWg1d",
+          "damages": []
+        },
+        {
+          "classUUID": "chan-guong-chieu-hau-phai-ovYPG0",
+          "score": 0.576372504234314,
+          "box": [
+            0.932748556137085,
+            0.20806600153446198,
+            0.9502924084663391,
+            0.2612282335758209
+          ],
+          "maskPath": "uphhOBKGirLDRFTSE_MrR.png",
+          "isPart": true,
+          "partDirection": "phai-4wif2Z",
+          "damages": []
+        },
+        {
+          "classUUID": "nep-kinh-canh-cua-truoc-phai-YkeBD4",
+          "score": 0.5544589161872864,
+          "box": [
+            0.8969298005104065,
+            0.2575618624687195,
+            0.9451754093170166,
+            0.26581117510795593
+          ],
+          "maskPath": "ivxZbErQyLwMFS9Iu408P.png",
+          "isPart": true,
+          "partDirection": "phai-truoc-eYWg1d",
+          "damages": []
+        },
+        {
+          "classUUID": "mat-guong-chieu-hau-phai-HkpQg7",
+          "score": 0.5324161052703857,
+          "box": [
+            0.9532163739204407,
+            0.21998167037963867,
+            0.9663742780685425,
+            0.25572869181632996
+          ],
+          "maskPath": "siGbKWL1QCDbRed5alp6S.png",
+          "isPart": true,
+          "partDirection": "phai-4wif2Z",
+          "damages": []
+        },
+        {
+          "classUUID": "den-hau-tren-cop-sau-phai-O3xf2q",
+          "score": 0.9632180333137512,
+          "box": [
+            0.002923976629972458,
+            0.3189734220504761,
+            0.49049708247184753,
+            0.515123724937439
+          ],
+          "maskPath": "8zxoFFIUPndiZawaOByEw.png",
+          "isPart": true,
+          "partDirection": "phai-sau-v1hAm6",
+          "damages": []
+        },
+        {
+          "classUUID": "kinh-canh-cua-sau-phai-4v1uZQ",
+          "score": 0.9425421357154846,
+          "box": [
+            0.7858186960220337,
+            0.10907424241304398,
+            0.886695921421051,
+            0.26489460468292236
+          ],
+          "maskPath": "eWC7xeAwJD8BFUEW6h3Jo.png",
+          "isPart": true,
+          "partDirection": "phai-sau-v1hAm6",
+          "damages": []
+        },
+        {
+          "classUUID": "kinh-chan-gio-sau-IEScdR",
+          "score": 0.9365201592445374,
+          "box": [
+            0.17836257815361023,
+            0.08615949004888535,
+            0.7375730872154236,
+            0.24656279385089874
+          ],
+          "maskPath": "rpPSkkz17HZXPIXULkX09.png",
+          "isPart": true,
+          "partDirection": "sau-htBwjB",
+          "damages": []
+        },
+        {
+          "classUUID": "kinh-canh-cua-truoc-phai-rFSPce",
+          "score": 0.8998062014579773,
+          "box": [
+            0.8574561476707458,
+            0.11274060606956482,
+            0.9393274784088135,
+            0.2575618624687195
+          ],
+          "maskPath": "U0ZXa_8AhHQwbFtrUkapK.png",
+          "isPart": true,
+          "partDirection": "phai-truoc-eYWg1d",
+          "damages": []
+        }
+      ],
+      "error": {
+        "confidentLevel": {
+          "notCar": 2.7107901882504222e-05,
+          "car": 0.9999726083712227,
+          "recapture": 2.8372689496020435e-07
+        },
+        "errorCode": 0
+      },
+      "imageResize": "INSURANCE_RESULT/dU72Bz9F-3ZjPeu_4dfRpAtsqPi2Fx3.jpg",
+      "imgUrl": "DA_TEST/accent-back-2024.jpg"
+    }
+  ]
+}
