@@ -11,7 +11,7 @@ from typing import List
 import logging
 
 # Đường dẫn thư mục chứa các file zip
-ROOT_DATASET_DIR = "/home/dev/ducanhng/Datasets/20260213/raw"
+ROOT_DATASET_DIR = "/home/a4000/Data/ducanhng/CV/Dataset/20260213/raw"
 
 # Cấu hình logging
 logging.basicConfig(

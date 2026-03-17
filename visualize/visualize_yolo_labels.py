@@ -207,6 +207,10 @@ def main():
                         list(args.images_dir.glob("*.jpeg")) + 
                         list(args.images_dir.glob("*.png")))
     
+    # Shuffle images if you want random ones
+    random.seed(42) # Using a seed for reproducibility
+    random.shuffle(image_files)
+    
     if args.limit:
         image_files = image_files[:args.limit]
     
