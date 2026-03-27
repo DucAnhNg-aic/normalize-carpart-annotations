@@ -6,10 +6,10 @@ echo "API Client Test Script (S3)"
 echo "=================================="
 echo ""
 
-API_IP="192.168.80.25"
+API_IP="192.168.81.179:28080"
 
 export API_IP=$API_IP
-python api_client.py  "DA_TEST/image_sensitive_case.png"
+python api_client.py  "DA_TEST/op-bds-sau-tren-corolla-cross.jpg"
 echo ""
 echo "=================================="
 echo "Test completed!"

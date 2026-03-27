@@ -3,23 +3,50 @@ import hashlib
 import argparse
 from pathlib import Path
 
-def get_label_hash(filepath):
-    """
-    Compute a hash of the YOLO label file content.
-    Normalizes by stripping whitespace and sorting lines to ignore order.
-    """
-    if not os.path.exists(filepath):
-        return None
+TOLERANCE = 1e-2
+
+def get_image_hash(filepath):
+    """Compute MD5 hash of image file bytes for pixel-level comparison."""
     try:
-        with open(filepath, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
-        # Normalize: strip, ignore empty lines, and sort
-        normalized = sorted([line.strip() for line in lines if line.strip()])
-        content = "\n".join(normalized)
-        return hashlib.md5(content.encode('utf-8')).hexdigest()
+        h = hashlib.md5()
+        with open(filepath, 'rb') as f:
+            for chunk in iter(lambda: f.read(65536), b''):
+                h.update(chunk)
+        return h.hexdigest()
     except Exception as e:
-        print(f"Error reading {filepath}: {e}")
+        print(f"Error hashing {filepath}: {e}")
         return None
+
+def labels_are_equal(path1, path2):
+    """
+    Compare two YOLO label .txt files numerically.
+    Sorts boxes by (class_id, first_coord) then compares each float with TOLERANCE.
+    Returns True if numerically identical, False otherwise.
+    """
+    def parse_file(filepath):
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                rows = []
+                for line in f:
+                    parts = line.strip().split()
+                    if not parts:
+                        continue
+                    rows.append([int(parts[0])] + [float(x) for x in parts[1:]])
+            rows.sort(key=lambda r: (r[0], r[1] if len(r) > 1 else 0))
+            return rows
+        except Exception as e:
+            print(f"Error reading {filepath}: {e}")
+            return None
+
+    r1, r2 = parse_file(path1), parse_file(path2)
+    if r1 is None or r2 is None or len(r1) != len(r2):
+        return False
+    for b1, b2 in zip(r1, r2):
+        if b1[0] != b2[0] or len(b1) != len(b2):
+            return False
+        if any(abs(c1 - c2) > TOLERANCE for c1, c2 in zip(b1[1:], b2[1:])):
+            return False
+    return True
 
 def scan_dataset(root_path):
     """
@@ -98,13 +125,21 @@ def main():
     same_labels = []
     diff_labels = []
     missing_lbl_in_one = []
+    diff_images = []  # Same name, different pixel content
 
     for key in common:
         old_lbl = old_data[key]['lbl']
         new_lbl = new_data[key]['lbl']
 
+        # Compare image content
+        old_img = old_data[key]['img']
+        new_img = new_data[key]['img']
+        if get_image_hash(str(old_img)) != get_image_hash(str(new_img)):
+            diff_images.append(key)
+
+        # Compare labels
         if old_lbl and new_lbl:
-            if get_label_hash(old_lbl) == get_label_hash(new_lbl):
+            if labels_are_equal(str(old_lbl), str(new_lbl)):
                 same_labels.append(key)
             else:
                 diff_labels.append(key)
@@ -125,6 +160,10 @@ def main():
         f"  - New images (to be added): {len(added)}",
         f"  - Existing images (in old): {len(common)}",
         "-"*50,
+        f"IMAGE CONTENT COMPARISON (for existing images):",
+        f"  - Identical images:   {len(common) - len(diff_images)}",
+        f"  - Different images:   {len(diff_images)}  ← same name, different pixels",
+        "-"*50,
         f"LABEL COMPARISON (for existing images):",
         f"  - Identical labels:   {len(same_labels)}",
         f"  - Different labels:   {len(diff_labels)}",
@@ -134,6 +173,11 @@ def main():
 
     # File-only detail (Contains ALL items)
     file_detail = []
+    if diff_images:
+        file_detail.append("\n[~] ALL images with DIFFERENT pixel content (same name, changed image):")
+        for item in sorted(diff_images):
+            file_detail.append(f"  - {item}")
+
     if diff_labels:
         file_detail.append("\n[!] ALL images with DIFFERENT labels (Updates):")
         for item in sorted(diff_labels):
@@ -146,6 +190,13 @@ def main():
 
     # Terminal-only preview (Contains first 20 items)
     terminal_preview = []
+    if diff_images:
+        terminal_preview.append("\n[~] Images with DIFFERENT pixel content (First 20):")
+        for item in sorted(diff_images)[:20]:
+            terminal_preview.append(f"  - {item}")
+        if len(diff_images) > 20:
+            terminal_preview.append(f"  ... and {len(diff_images) - 20} more")
+
     if diff_labels:
         terminal_preview.append("\n[!] Images with DIFFERENT labels (First 20):")
         for item in sorted(diff_labels)[:20]:

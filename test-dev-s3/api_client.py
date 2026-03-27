@@ -13,8 +13,8 @@ from pathlib import Path
 from visualize_masks import visualize_result
 
 # API Configuration
-API_IP = os.getenv("API_IP", "192.168.80.16")
-API_URL = f"http://{API_IP}:8080/api/v2/segmentation/workflow"
+API_IP_PORT = os.getenv("API_IP_PORT", "192.168.80.16:8080")
+API_URL = f"http://{API_IP_PORT}/api/v2/segmentation/workflow"
 AUTH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOjEyMzQ1NiwiZW1haWwiOiJ0ZXN0QGFpY3ljbGUuYWkiLCJjcmVhdGVkQXQiOiIyMDI0LTA5LTA2VDAyOjQ0OjE3LjQyMloiLCJpYXQiOjE3MjU1OTA2NTcsImV4cCI6MTcyNTYzMzg1N30.5pCsrIG3F1jl2Jjy9cwp8QIRpbK9a6_oD9idOV42rg"
 
 # Request payload template (all params except file_paths)
@@ -162,7 +162,7 @@ def main():
     results = process_images(file_paths)
     
     # Save combined results to JSON file
-    output_file = "/home/a4000/Data/ducanhng/CV/Chore/test-dev-s3/api_results.json"
+    output_file = "api_results.json"
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump({"result": results}, f, indent=2, ensure_ascii=False)
     

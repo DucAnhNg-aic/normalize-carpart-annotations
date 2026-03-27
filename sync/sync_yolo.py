@@ -4,31 +4,49 @@ import hashlib
 import argparse
 from pathlib import Path
 
+TOLERANCE = 1e-2
+
 def get_file_hash(filepath):
     """Compute MD5 hash of a file's raw content."""
     if not os.path.exists(filepath):
         return None
     hash_md5 = hashlib.md5()
-    with open(filepath, "rb") as f:
-        for chunk in iter(lambda: f.read(4096), b""):
-            hash_md5.update(chunk)
-    return hash_md5.hexdigest()
-
-def get_label_hash_normalized(filepath):
-    """
-    Compute a hash of the YOLO label file content.
-    Normalizes by stripping whitespace and sorting lines to ignore order.
-    """
-    if not os.path.exists(filepath):
-        return None
     try:
-        with open(filepath, 'r', encoding='utf-8') as f:
-            lines = f.readlines()
-        normalized = sorted([line.strip() for line in lines if line.strip()])
-        content = "\n".join(normalized)
-        return hashlib.md5(content.encode('utf-8')).hexdigest()
+        with open(filepath, "rb") as f:
+            for chunk in iter(lambda: f.read(65536), b""):
+                hash_md5.update(chunk)
+        return hash_md5.hexdigest()
     except:
         return None
+
+def labels_are_equal(path1, path2):
+    """
+    Compare two YOLO label .txt files numerically.
+    Sorts boxes by (class_id, first_coord) then compares each float with TOLERANCE.
+    """
+    def parse_file(filepath):
+        try:
+            with open(filepath, 'r', encoding='utf-8') as f:
+                rows = []
+                for line in f:
+                    parts = line.strip().split()
+                    if not parts:
+                        continue
+                    rows.append([int(parts[0])] + [float(x) for x in parts[1:]])
+            rows.sort(key=lambda r: (r[0], r[1] if len(r) > 1 else 0))
+            return rows
+        except Exception as e:
+            return None
+
+    r1, r2 = parse_file(path1), parse_file(path2)
+    if r1 is None or r2 is None or len(r1) != len(r2):
+        return False
+    for b1, b2 in zip(r1, r2):
+        if b1[0] != b2[0] or len(b1) != len(b2):
+            return False
+        if any(abs(c1 - c2) > TOLERANCE for c1, c2 in zip(b1[1:], b2[1:])):
+            return False
+    return True
 
 def is_identical(src_img, tgt_img, src_lbl, tgt_lbl):
     """Check if both image and label are already identical at target."""
@@ -43,10 +61,9 @@ def is_identical(src_img, tgt_img, src_lbl, tgt_lbl):
     if src_lbl and src_lbl.exists():
         if not tgt_lbl.exists():
             return False
-        if get_label_hash_normalized(src_lbl) != get_label_hash_normalized(tgt_lbl):
+        if not labels_are_equal(str(src_lbl), str(tgt_lbl)):
             return False
     elif tgt_lbl.exists():
-        # Source has no label but target does
         return False
         
     return True

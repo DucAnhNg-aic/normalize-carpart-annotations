@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Cấu hình mặc định
-OLD_PATH="/home/a4000/ducanh/Dataset"
-NEW_PATH="/home/a4000/ducanh/Dataset-new/VF5"
+OLD_PATH="/home/ubuntu/ducanh/Data"
+NEW_PATH="/home/ubuntu/ducanh/New-Data/luxsa-old/sb-ap"
 
 # Cách dùng:
 # 1. Chạy thử: ./sync_yolo.sh
@@ -25,4 +25,4 @@ echo "    Source: $NEW_PATH"
 echo "    Mode:   ${YES_FLAG:-DRY-RUN}"
 echo "--------------------------------------"
 
-python3 /home/a4000/ducanh/normalize-carpart-annotations/sync/sync_yolo.py --old "$OLD_PATH" --new "$NEW_PATH" $YES_FLAG
+python3 /home/ubuntu/ducanh/normalize-carpart-annotations/sync/sync_yolo.py --old "$OLD_PATH" --new "$NEW_PATH" $YES_FLAG

@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Cấu hình mặc định
-OLD_PATH="/home/a4000/ducanh/Dataset"
-NEW_PATH="/home/a4000/ducanh/Dataset-new/VF5"
+OLD_PATH="/home/ubuntu/ducanh/Data"
+NEW_PATH="/home/ubuntu/ducanh/New-Data/accent-2024"
 
 # Nếu bạn truyền tham số, nó sẽ coi đó là NEW_PATH mới
 if [ ! -z "$1" ]; then
@@ -14,4 +14,4 @@ echo "    Old: $OLD_PATH"
 echo "    New: $NEW_PATH"
 echo "--------------------------------------"
 
-python3 /home/a4000/ducanh/normalize-carpart-annotations/compare/compare_yolo.py "$OLD_PATH" "$NEW_PATH"
+python "$(dirname "$0")/compare_yolo.py" "$OLD_PATH" "$NEW_PATH"

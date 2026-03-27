@@ -28,8 +28,8 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Default paths (can be overridden by args)
-DEFAULT_REFERENCE_DATA_YAML = Path("/home/a4000/ducanh/Dataset/data.yaml")
-DEFAULT_RAW_DATASETS_ROOT = Path("/home/a4000/ducanh/Dataset-new")
+DEFAULT_REFERENCE_DATA_YAML = Path("/home/ubuntu/ducanh/Data/data.yaml")
+DEFAULT_RAW_DATASETS_ROOT = Path("/home/ubuntu/ducanh/New-Data/luxsa-old/sb-ap")
 
 # Damage classes to remove (these should not be in the final dataset)
 DAMAGE_CLASSES = {
