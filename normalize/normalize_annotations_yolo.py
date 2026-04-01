@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 
 # Default paths (can be overridden by args)
 DEFAULT_REFERENCE_DATA_YAML = Path("/home/ubuntu/ducanh/Data/data.yaml")
-DEFAULT_RAW_DATASETS_ROOT = Path("/home/ubuntu/ducanh/New-Data/luxsa-old/sb-ap")
+DEFAULT_RAW_DATASETS_ROOT = Path("/home/ubuntu/ducanh/New-Data/ALL")
 
 # Damage classes to remove (these should not be in the final dataset)
 DAMAGE_CLASSES = {
@@ -111,7 +111,7 @@ def create_class_id_mapping(
             # If we don't map it, normalize_label_file writes it as is. 
             # If the ID conflicts with new scheme, that's bad.
             # But for this task, we assume all valid classes are in reference.
-            logger.warning(f"Class '{class_name}' (ID {old_id}) not found in reference mapping (dataset: {dataset_yaml_path.parent.name})")
+            logger.error(f"Class '{class_name}' (ID {old_id}) not found in reference mapping (dataset: {dataset_yaml_path.parent.name})")
     
     return id_mapping, damage_class_ids
 
@@ -141,6 +141,7 @@ def normalize_label_file(
     label_path: Path,
     id_mapping: Dict[int, int],
     damage_class_ids: List[int],
+    unmapped_ids_found: set,
     dry_run: bool = False
 ) -> Tuple[int, int]:
     """
@@ -191,10 +192,11 @@ def normalize_label_file(
             new_lines.append(' '.join(parts))
             num_remapped += 1
         else:
-            # If not in mapping and not damage, we currently keep it. 
-            # Ideally we should probably remove it if we want strict adherence to schema,
-            # but preserving unknown data is safer than deleting it silently.
-            new_lines.append(line)
+            # If not in mapping and not damage, we remove it to avoid keeping
+            # class IDs that don't conform to the reference schema.
+            num_removed += 1
+            unmapped_ids_found.add(old_class_id)
+            # logger.debug(f"Removing unmapped class ID {old_class_id} in {label_path}")
     
     if not dry_run:
         with open(label_path, 'w', encoding='utf-8') as f:
@@ -209,7 +211,7 @@ def normalize_dataset(
     dataset_yaml_path: Path,
     reference_mapping: Dict[str, int],
     dry_run: bool = False
-) -> Dict[str, int]:
+) -> Tuple[Dict[str, int], set]:
     """
     Normalize a single dataset (data.yaml and all label files).
     
@@ -235,10 +237,11 @@ def normalize_dataset(
     # Normalize all label files
     total_remapped = 0
     total_removed = 0
+    unmapped_ids_found = set()
     
     for label_path in label_files:
         num_remapped, num_removed = normalize_label_file(
-            label_path, id_mapping, damage_class_ids, dry_run
+            label_path, id_mapping, damage_class_ids, unmapped_ids_found, dry_run
         )
         total_remapped += num_remapped
         total_removed += num_removed
@@ -254,7 +257,7 @@ def normalize_dataset(
     
     # logger.info(f"  Stats: {len(label_files)} files, {total_remapped} remapped, {total_removed} removed")
     
-    return stats
+    return stats, unmapped_ids_found
 
 
 def main():
@@ -301,14 +304,16 @@ def main():
     
     # Process each dataset
     all_stats = []
+    global_unmapped_ids = set()
     
     # Use tqdm for overall progress
     pbar = tqdm(data_yaml_files, desc="Processing datasets")
     for data_yaml_path in pbar:
         try:
             pbar.set_postfix_str(f"Current: {data_yaml_path.parent.name}")
-            stats = normalize_dataset(data_yaml_path, reference_mapping, args.dry_run)
+            stats, unmapped_ids = normalize_dataset(data_yaml_path, reference_mapping, args.dry_run)
             all_stats.append(stats)
+            global_unmapped_ids.update(unmapped_ids)
         except Exception as e:
             logger.error(f"Error processing {data_yaml_path}: {e}")
             continue
@@ -325,7 +330,11 @@ def main():
     logger.info(f"Datasets processed: {total_datasets}")
     logger.info(f"Label files processed: {total_files}")
     logger.info(f"Annotations remapped: {total_remapped}")
-    logger.info(f"Annotations removed (damage): {total_removed}")
+    logger.info(f"Annotations removed: {total_removed}")
+    
+    if global_unmapped_ids:
+        logger.error(f"UNMAPPED CLASS IDs FOUND AND REMOVED: {sorted(list(global_unmapped_ids))}")
+        logger.error("These IDs were in the label files but not mapped to the reference schema.")
     
     if args.dry_run:
         logger.info("\n*** This was a DRY RUN - no files were modified ***")

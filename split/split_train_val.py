@@ -65,6 +65,9 @@ def split_train_val(val_txt_path, data_dir, dry_run=False):
         # Move image
         if image_src.exists():
             if not dry_run:
+                # If destination exists, remove it first to ensure overwrite
+                if image_dst.exists():
+                    image_dst.unlink()
                 shutil.move(str(image_src), str(image_dst))
             images_moved += 1
             if dry_run:
@@ -76,6 +79,9 @@ def split_train_val(val_txt_path, data_dir, dry_run=False):
         # Move label
         if label_src.exists():
             if not dry_run:
+                # If destination exists, remove it first to ensure overwrite
+                if label_dst.exists():
+                    label_dst.unlink()
                 shutil.move(str(label_src), str(label_dst))
             labels_moved += 1
             if dry_run and image_src.exists():

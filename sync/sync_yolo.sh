@@ -2,7 +2,7 @@
 
 # Cấu hình mặc định
 OLD_PATH="/home/ubuntu/ducanh/Data"
-NEW_PATH="/home/ubuntu/ducanh/New-Data/luxsa-old/sb-ap"
+NEW_PATH="/home/ubuntu/ducanh/New-Data/ALL"
 
 # Cách dùng:
 # 1. Chạy thử: ./sync_yolo.sh

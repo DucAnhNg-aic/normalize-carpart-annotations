@@ -2,7 +2,7 @@
 
 # Cấu hình mặc định
 OLD_PATH="/home/ubuntu/ducanh/Data"
-NEW_PATH="/home/ubuntu/ducanh/New-Data/accent-2024"
+NEW_PATH="/home/ubuntu/ducanh/New-Data/ALL"   
 
 # Nếu bạn truyền tham số, nó sẽ coi đó là NEW_PATH mới
 if [ ! -z "$1" ]; then

@@ -4,6 +4,6 @@
 # This moves images and labels from images/train and labels/train 
 # to images/val and labels/val respectively.
 
-python3 /home/a4000/ducanh/normalize-carpart-annotations/split/split_train_val.py \
-  --val-txt /home/a4000/ducanh/Dataset/val.txt \
-  --data-dir /home/a4000/ducanh/Dataset
+python3 /home/ubuntu/ducanh/normalize-carpart-annotations/split/split_train_val.py \
+  --val-txt /home/ubuntu/ducanh/Data/val.txt \
+  --data-dir /home/ubuntu/ducanh/Data

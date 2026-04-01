@@ -173,6 +173,12 @@ def main():
 
     # File-only detail (Contains ALL items)
     file_detail = []
+
+    if common:
+        file_detail.append("\n[=] ALL EXISTING images (Common to both):")
+        for item in sorted(common):
+            file_detail.append(f"  - {item}")
+
     if diff_images:
         file_detail.append("\n[~] ALL images with DIFFERENT pixel content (same name, changed image):")
         for item in sorted(diff_images):
@@ -190,6 +196,14 @@ def main():
 
     # Terminal-only preview (Contains first 20 items)
     terminal_preview = []
+
+    if common:
+        terminal_preview.append("\n[=] EXISTING images (First 20):")
+        for item in sorted(common)[:20]:
+            terminal_preview.append(f"  - {item}")
+        if len(common) > 20:
+            terminal_preview.append(f"  ... and {len(common) - 20} more")
+
     if diff_images:
         terminal_preview.append("\n[~] Images with DIFFERENT pixel content (First 20):")
         for item in sorted(diff_images)[:20]:

@@ -9,8 +9,8 @@
 #   --limit 20
 
 python /home/ubuntu/ducanh/normalize-carpart-annotations/visualize/visualize_yolo_labels.py \
-  --image-path "/home/ubuntu/ducanh/New-Data/accent-2024/images/train/" \
-  --labels-dir "/home/ubuntu/ducanh/New-Data/accent-2024/labels/train" \
-  --data-yaml "/home/ubuntu/ducanh/New-Data/accent-2024/data.yaml" \
+  --image-path "/home/ubuntu/ducanh/Data/images/train/35595 Trước Toàn cảnh 355.jpg" \
+  --labels-dir "/home/ubuntu/ducanh/Data/labels/train" \
+  --data-yaml "/home/ubuntu/ducanh/Data/data.yaml" \
   --output-dir "/home/ubuntu/ducanh/normalize-carpart-annotations/visualizations/" \
-  --limit 15
+  --limit 1
