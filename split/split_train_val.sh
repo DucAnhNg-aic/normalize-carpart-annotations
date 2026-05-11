@@ -5,5 +5,5 @@
 # to images/val and labels/val respectively.
 
 python3 /home/ubuntu/ducanh/normalize-carpart-annotations/split/split_train_val.py \
-  --val-txt /home/ubuntu/ducanh/Data/val.txt \
-  --data-dir /home/ubuntu/ducanh/Data
+  --val-txt /home/ubuntu/ducanh/CarPartSegmentatonTrainingData/val.txt \
+  --data-dir /home/ubuntu/ducanh/CarPartSegmentatonTrainingData

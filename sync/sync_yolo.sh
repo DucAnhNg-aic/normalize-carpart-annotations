@@ -1,13 +1,9 @@
 #!/bin/bash
 
-# Cấu hình mặc định
-OLD_PATH="/home/ubuntu/ducanh/Data"
-NEW_PATH="/home/ubuntu/ducanh/New-Data/ALL"
+# Cấu hình mặc định sẽ được ghi đè nếu có tham số truyền vào
+OLD_DEFAULT="/home/ubuntu/ducanh/CarPartSegmentatonTrainingData"
+NEW_DEFAULT="/home/ubuntu/ducanh/New-Data"
 
-# Cách dùng:
-# 1. Chạy thử: ./sync_yolo.sh
-# 2. Chạy thật: ./sync_yolo.sh --yes
-# 3. Chạy thật với folder khác: ./sync_yolo.sh --yes /đường/dẫn/mới
 
 YES_FLAG=""
 if [[ "$1" == "--yes" ]]; then
@@ -15,9 +11,8 @@ if [[ "$1" == "--yes" ]]; then
     shift
 fi
 
-if [ ! -z "$1" ]; then
-    NEW_PATH=$1
-fi
+OLD_PATH="${1:-$OLD_DEFAULT}"
+NEW_PATH="${2:-$NEW_DEFAULT}"
 
 echo "[*] Syncing:"
 echo "    Target: $OLD_PATH"

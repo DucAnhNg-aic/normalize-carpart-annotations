@@ -1,16 +1,21 @@
 #!/bin/bash
 
 # Visualize YOLO labels with Vietnamese class names
-# python /home/ubuntu/ducanh/normalize-carpart-annotations/visualize/visualize_yolo_labels.py \
-#   --image-path "/home/ubuntu/ducanh/New-Data/export_2026-03-26T07_05_46.361Z/images/train/riLW9Raw4YANDZDxx7OME.jpg" \
-#   --labels-dir "/home/ubuntu/ducanh/New-Data/export_2026-03-26T07_05_46.361Z/labels/train" \
-#   --data-yaml "/home/ubuntu/ducanh/New-Data/export_2026-03-26T07_05_46.361Z/data.yaml" \
-#   --output-dir "/home/ubuntu/ducanh/normalize-carpart-annotations/visualizations/new" \
-#   --limit 20
+# Supports both single dataset and nested groups mode
 
-python /home/ubuntu/ducanh/normalize-carpart-annotations/visualize/visualize_yolo_labels.py \
-  --image-path "/home/ubuntu/ducanh/Data/images/train/35595 Trước Toàn cảnh 355.jpg" \
-  --labels-dir "/home/ubuntu/ducanh/Data/labels/train" \
-  --data-yaml "/home/ubuntu/ducanh/Data/data.yaml" \
-  --output-dir "/home/ubuntu/ducanh/normalize-carpart-annotations/visualizations/" \
-  --limit 1
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VISUALIZE_PY="$SCRIPT_DIR/visualize_yolo_labels.py"
+DATA_YAML="/home/ubuntu/ducanh/CarPartSegmentatonTrainingData/data.yaml"
+
+# ── Groups mode: visualize duplicates_conflict/groups/<hash>/images/train/ ──
+# python "$VISUALIZE_PY" \
+#   --groups-dir "/home/ubuntu/ducanh/duplicates_conflict/groups" \
+#   --data-yaml  "$DATA_YAML" \
+#   --output-dir "/home/ubuntu/ducanh/normalize-carpart-annotations/visualizations/groups"
+
+# ── Single dataset mode (comment out groups-dir block above to use this) ──
+python "$VISUALIZE_PY" \
+  --image-path "/home/ubuntu/ducanh/CarPartSegmentatonTrainingData/images/train/image1663565826244884_2022100401098_THVO_SAU.jpg" \
+  --labels-dir "/home/ubuntu/ducanh/CarPartSegmentatonTrainingData/labels/train" \
+  --data-yaml  "$DATA_YAML" \
+  --output-dir "/home/ubuntu/ducanh/normalize-carpart-annotations/visualizations/"

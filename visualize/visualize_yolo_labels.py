@@ -16,6 +16,7 @@ import argparse
 from pathlib import Path
 import random
 from PIL import Image, ImageDraw, ImageFont
+import os
 
 def load_class_names(data_yaml_path):
     """Load class names from data.yaml"""
@@ -167,8 +168,7 @@ def main():
     parser.add_argument(
         '--labels-dir',
         type=Path,
-        required=True,
-        help='Directory containing YOLO label files'
+        help='Directory containing YOLO label files (required unless --groups-dir is used)'
     )
     parser.add_argument(
         '--data-yaml',
@@ -197,12 +197,22 @@ def main():
         type=int,
         help='Limit number of images to process'
     )
+    parser.add_argument(
+        '--groups-dir',
+        type=Path,
+        help='Root of groups dir: groups/<hash>/images/train/ + labels/train/. '
+             'Walks all subgroups and outputs to output-dir/<hash>/'
+    )
     args = parser.parse_args()
-    
+
+    # --labels-dir is required in single-dataset mode (not needed for --groups-dir)
+    if not args.groups_dir and not args.labels_dir:
+        parser.error("--labels-dir is required unless --groups-dir is specified")
+
     # Load class names
     class_names = load_class_names(args.data_yaml)
     print(f"Loaded {len(class_names)} classes from {args.data_yaml}")
-    
+
     # Generate colors
     colors = generate_colors(len(class_names))
     
@@ -221,8 +231,10 @@ def main():
                       list(args.images_dir.glob("*.jpeg")) + 
                       list(args.images_dir.glob("*.png")))
         random.shuffle(image_files)
+    elif args.groups_dir:
+        image_files = [] # Handled later in groups mode
     else:
-        print("Error: Either --images-dir or --image-path must be specified.")
+        print("Error: Either --images-dir, --image-path, or --groups-dir must be specified.")
         return
 
     # Always apply limit if specified
@@ -236,37 +248,94 @@ def main():
         args.output_dir.mkdir(parents=True, exist_ok=True)
         print(f"Saving visualizations to {args.output_dir}")
     
-    # Process each image
+    # ── Nested groups mode ───────────────────────────────────────────────
+    if args.groups_dir:
+        groups_root = args.groups_dir
+        if not groups_root.is_dir():
+            print(f"Error: --groups-dir {groups_root} does not exist")
+            return
+
+        group_names = sorted(d for d in os.listdir(groups_root)
+                             if (groups_root / d).is_dir())
+        print(f"Found {len(group_names)} groups in {groups_root}")
+
+        total_processed = 0
+        for group_name in group_names:
+            group_img_dir = groups_root / group_name / "images" / "train"
+            group_lbl_dir = groups_root / group_name / "labels" / "train"
+
+            if not group_img_dir.is_dir():
+                continue
+
+            image_files = (list(group_img_dir.glob("*.jpg")) +
+                           list(group_img_dir.glob("*.jpeg")) +
+                           list(group_img_dir.glob("*.png")))
+            if not image_files:
+                continue
+
+            # Output dir mirrors group structure
+            if args.output_dir:
+                group_out = args.output_dir / group_name
+                group_out.mkdir(parents=True, exist_ok=True)
+            else:
+                group_out = None
+
+            print(f"\n[{group_name}] {len(image_files)} images")
+            for i, image_path in enumerate(sorted(image_files), 1):
+                label_path = group_lbl_dir / (image_path.stem + '.txt')
+                print(f"  [{i}/{len(image_files)}] {image_path.name}", end=' ')
+
+                result = visualize_image(image_path, label_path, class_names, colors,
+                                        args.font_path, args.alpha)
+                if result is None:
+                    print("FAILED")
+                    continue
+
+                if group_out:
+                    out_path = group_out / image_path.name
+                    cv2.imwrite(str(out_path), result)
+                    print("SAVED")
+                else:
+                    print("SHOWING")
+                    cv2.imshow(f'[{group_name}] {image_path.name}', result)
+                    key = cv2.waitKey(0)
+                    if key == ord('q'):
+                        cv2.destroyAllWindows()
+                        return
+                    cv2.destroyAllWindows()
+                total_processed += 1
+
+        print(f"\n✅ Processed {total_processed} images across {len(group_names)} groups")
+        return
+
+    # ── Single dataset mode (original behaviour) ─────────────────────────
     for i, image_path in enumerate(image_files, 1):
         label_path = args.labels_dir / (image_path.stem + '.txt')
-        
+
         print(f"[{i}/{len(image_files)}] Processing {image_path.name}...", end=' ')
-        
-        # Visualize
-        result = visualize_image(image_path, label_path, class_names, colors, 
-                                args.font_path, args.alpha)
-        
+
+        result = visualize_image(image_path, label_path, class_names, colors,
+                                 args.font_path, args.alpha)
+
         if result is None:
             print("FAILED")
             continue
-        
+
         if args.output_dir:
-            # Save to output directory
             output_path = args.output_dir / image_path.name
             cv2.imwrite(str(output_path), result)
             print("SAVED")
         else:
-            # Show interactively
             print("SHOWING (press any key to continue, 'q' to quit)")
             cv2.imshow(f'Visualization - {image_path.name}', result)
             key = cv2.waitKey(0)
             if key == ord('q'):
                 break
             cv2.destroyAllWindows()
-    
+
     if not args.output_dir:
         cv2.destroyAllWindows()
-    
+
     print(f"\n✅ Processed {len(image_files)} images")
 
 if __name__ == '__main__':

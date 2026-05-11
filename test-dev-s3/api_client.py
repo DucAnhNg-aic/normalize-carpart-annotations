@@ -13,7 +13,7 @@ from pathlib import Path
 from visualize_masks import visualize_result
 
 # API Configuration
-API_IP_PORT = os.getenv("API_IP_PORT", "192.168.80.16:8080")
+API_IP_PORT = os.getenv("API_IP_PORT", "localhost:8080")
 API_URL = f"http://{API_IP_PORT}/api/v2/segmentation/workflow"
 AUTH_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJvdHAiOjEyMzQ1NiwiZW1haWwiOiJ0ZXN0QGFpY3ljbGUuYWkiLCJjcmVhdGVkQXQiOiIyMDI0LTA5LTA2VDAyOjQ0OjE3LjQyMloiLCJpYXQiOjE3MjU1OTA2NTcsImV4cCI6MTcyNTYzMzg1N30.5pCsrIG3F1jl2Jjy9cwp8QIRpbK9a6_oD9idOV42rg"
 
