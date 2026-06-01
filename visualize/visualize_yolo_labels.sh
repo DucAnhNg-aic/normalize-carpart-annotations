@@ -15,7 +15,7 @@ DATA_YAML="/home/ubuntu/ducanh/CarPartSegmentatonTrainingData/data.yaml"
 
 # ── Single dataset mode (comment out groups-dir block above to use this) ──
 python "$VISUALIZE_PY" \
-  --image-path "/home/ubuntu/ducanh/CarPartSegmentatonTrainingData/images/train/image1663565826244884_2022100401098_THVO_SAU.jpg" \
-  --labels-dir "/home/ubuntu/ducanh/CarPartSegmentatonTrainingData/labels/train" \
-  --data-yaml  "$DATA_YAML" \
+  --image-path "/home/ubuntu/ducanh/CarPartSegmentationTrainingDataYOLO/images/train/20220518095606150528.jpg" \
+  --labels-dir "/home/ubuntu/ducanh/CarPartSegmentationTrainingDataYOLO/labels/train" \
+  --data-yaml  "/home/ubuntu/ducanh/CarPartSegmentationTrainingDataYOLO/data.yaml" \
   --output-dir "/home/ubuntu/ducanh/normalize-carpart-annotations/visualizations/"

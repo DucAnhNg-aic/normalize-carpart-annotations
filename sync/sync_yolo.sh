@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Cấu hình mặc định sẽ được ghi đè nếu có tham số truyền vào
-OLD_DEFAULT="/home/ubuntu/ducanh/CarPartSegmentatonTrainingData"
+OLD_DEFAULT="/home/ubuntu/ducanh/CarPartSegmentationTrainingDataYOLO"
 NEW_DEFAULT="/home/ubuntu/ducanh/New-Data"
 
 

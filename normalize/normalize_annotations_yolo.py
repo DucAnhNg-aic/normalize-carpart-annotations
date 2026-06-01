@@ -28,7 +28,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Default paths (can be overridden by args)
-DEFAULT_REFERENCE_DATA_YAML = Path("/home/ubuntu/ducanh/CarPartSegmentatonTrainingData/data.yaml")
+DEFAULT_REFERENCE_DATA_YAML = Path("/home/ubuntu/ducanh/CarPartSegmentationTrainingDataYOLO/data.yaml")
 DEFAULT_RAW_DATASETS_ROOT = Path("/home/ubuntu/ducanh/New-Data/ALL")
 
 # Damage classes to remove (these should not be in the final dataset)
