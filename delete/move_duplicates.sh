@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Configuration: Use arguments if provided, else defaults
-OLD_PATH="${1:-/home/ubuntu/ducanh/CarPartSegmentationTrainingDataYOLO}"
+OLD_PATH="${1:-/home/ubuntu/ducanh/TRAIN_DATA/CarPartSegTrainYOLO}"
 NEW_PATH="${2:-/home/ubuntu/ducanh/New-Data}"
-MOVE_TO="${3:-/home/ubuntu/ducanh/Data_Backup_Duplicates_HRV}"
+MOVE_TO="${3:-/home/ubuntu/ducanh/Data_Backup_Duplicates}"
 
 # Create a timestamped backup directory (optional but safer)
 # MOVE_TO="/home/ubuntu/ducanh/Data_Backup_Duplicates/$(date +%Y%m%d_%H%M%S)"

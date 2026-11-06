@@ -5,7 +5,7 @@
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VISUALIZE_PY="$SCRIPT_DIR/visualize_yolo_labels.py"
-DATA_YAML="/home/ubuntu/ducanh/CarPartSegmentatonTrainingData/data.yaml"
+DATA_YAML="/home/ubuntu/ducanh/TRAIN_DATA/CarPartSegTrainYOLO/data.yaml"
 
 # ── Groups mode: visualize duplicates_conflict/groups/<hash>/images/train/ ──
 # python "$VISUALIZE_PY" \
@@ -15,7 +15,7 @@ DATA_YAML="/home/ubuntu/ducanh/CarPartSegmentatonTrainingData/data.yaml"
 
 # ── Single dataset mode (comment out groups-dir block above to use this) ──
 python "$VISUALIZE_PY" \
-  --image-path "/home/ubuntu/ducanh/CarPartSegmentationTrainingDataYOLO/images/train/20220518095606150528.jpg" \
-  --labels-dir "/home/ubuntu/ducanh/CarPartSegmentationTrainingDataYOLO/labels/train" \
-  --data-yaml  "/home/ubuntu/ducanh/CarPartSegmentationTrainingDataYOLO/data.yaml" \
+  --image-path "/home/ubuntu/ducanh/New-Data/images/train/image1664339502950952_2022100401464_THVO_TRUOC.jpg" \
+  --labels-dir "/home/ubuntu/ducanh/New-Data/labels/train" \
+  --data-yaml  "/home/ubuntu/ducanh/New-Data/data.yaml" \
   --output-dir "/home/ubuntu/ducanh/normalize-carpart-annotations/visualizations/"

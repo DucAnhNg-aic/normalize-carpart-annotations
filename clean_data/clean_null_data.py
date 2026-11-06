@@ -190,7 +190,7 @@ def clean_dataset(data_path, output_path):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Clean dataset by moving unpaired and empty files.")
-    parser.add_argument("--data-path", default="/home/ubuntu/ducanh/CarPartSegmentationTrainingDataYOLO", help="Path to YOLO dataset directory.")
+    parser.add_argument("--data-path", default="/home/ubuntu/ducanh/TRAIN_DATA/CarPartSegTrainYOLO", help="Path to YOLO dataset directory.")
     parser.add_argument("--output-path", default="/home/ubuntu/ducanh/Data_Null", help="Path to move clean files.")
     
     args = parser.parse_args()

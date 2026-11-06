@@ -1,9 +1,9 @@
-# Pipeline wrapper (hard-coded defaults)
-# Edit these two variables to change pipeline inputs.
-OLD_PATH="/home/ubuntu/ducanh/CarPartSegmentationTrainingDataYOLO"
-NEW_PATH="/home/ubuntu/ducanh/New-Data"
+# Pipeline wrapper
+# Default paths (can be overridden via positional arguments: bash pipeline.sh [OLD_PATH] [NEW_PATH])
+OLD_PATH="${1:-/home/ubuntu/ducanh/TRAIN_DATA/CarPartSegTrainYOLO}"
+NEW_PATH="${2:-/home/ubuntu/ducanh/New-Data}"
 
-echo "PIPELINE: Using hard-coded paths"
+echo "PIPELINE: Using paths"
 echo "  OLD_PATH = $OLD_PATH"
 echo "  NEW_PATH = $NEW_PATH"
 echo "----------------------"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Configuration: Use arguments if provided, else defaults
-DATA_PATH="${1:-/home/ubuntu/ducanh/CarPartSegmentationTrainingDataYOLO}"
+DATA_PATH="${1:-/home/ubuntu/ducanh/TRAIN_DATA/CarPartSegTrainYOLO}"
 OUTPUT_PATH="${2:-/home/ubuntu/ducanh/Data_Null}"
 
 echo "Starting cleaning process..."
